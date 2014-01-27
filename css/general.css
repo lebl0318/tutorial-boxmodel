@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+/* shorthand:
+    margin: 40px; all 4 sides
+    margin: 40px auto; top/bottom right/left
+    marhin: 40px auto 0; top right/left bottom
+    margin: 40px 30px 5px 10px; T R B L individually
+start at top then continue clockwise around the box 
+
+units of measurement
+width = always in %
+height = rem
+type = rem
+graphics = px (ex: border}
+
+reminder - child determines the height of the parent element
+*/
+
+/* control size of viewport */
+
+@-moz-viewport { width: device-width; scale: 1; } /* forefox, microsoft, opera, safari and chrome, etc */
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+@viewport { width: device-width; scale: 1; } /* standard */
+
+/* adjust padding so it draws on the box interior */
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+    
+      /* controls the zoom on mobile */
+    
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+    
+    /* controls the deafault font size */
+    
+    font-size: 100%;/* 100% = 16 pixels = 1rem */
+    font-family: georgia, times, serif;
+}
+
+img { /* images are responsive, 100% makes it grow/shrink with canvas */
+	width: 100%;
+    display: block;
+}
+
+body { 
+    margin: 0;
+    padding: 0
+}
+.masthead {
+    background-color: maroon;
+    overflow: hidden; /*forced it to work and obey our margins from logo class below */
+}
+.logo {
+    height: 4.5rem;
+    width: auto;
+    margin: .5rem 5%;
+    
+    /* float: right to put it on right */
+   /*  display: block; 
+    margin: 0.5rem auto; for center */
+}
+article {
+    margin: 0;
+    padding: 0 5%;
+    overflow: hidden; /* forced parent to wrap around child */
+}
+h1 {
+    margin: 1.5rem 0;
+    font-size: 5rem;
+    line-height: 4.5rem;
+}
+h1 + p { /*1st para after h1 */
+    font-size:1.25rem;
+    font-weight: bold;
+}
+p {
+    line-height: 1.5rem;
+    margin: 0 0 1.5rem;
+}
+figure {
+    margin: 0 auto 1.5rem; /* auto in case we want smaller and keeps it centered */
+    width: 100%; /* 80% would shrink */
+}
+figcaption {
+    margin: .5rem 0 0;
+    font-size: .75rem;
+}
+footer {
+    background-color: brown;
+    overflow: hidden;
+}
+footer p {
+    margin: .5rem 5% 5rem;
+    color: white;
+    font-size: .75rem;
+}
+footer a {
+    color: white;
+}
